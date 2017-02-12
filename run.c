@@ -3,6 +3,7 @@
 #include "problem1.c"
 #include "problem2.c"
 #include "problem3.c"
+#include "problem4.c"
 
 int main(int argc, char *argv[])
 {
@@ -38,6 +39,16 @@ int main(int argc, char *argv[])
             }
 
             answer = problem3(problemArg1);
+            break;
+
+        case 4:
+            problemArg1 = 3;
+
+            if (argc == 3) {
+                problemArg1 = tonumber(argv[2]);
+            }
+
+            answer = problem4(problemArg1);
             break;
         default:
             println("Unknown problem number");

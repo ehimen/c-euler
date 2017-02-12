@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+#include "vector.c"
 
 int tonumber(char *string)
 {
@@ -35,6 +36,31 @@ int tonumber(char *string)
     }
 
     return number;
+}
+
+char* tostring(int number)
+{
+    int base = 10;
+    int n = 0;
+    int digit;
+    vector_t *digits = vector_init(10);
+
+    while (number != 0) {
+        int unit = (int)pow((double)base, (double)n + 1.0f);
+        digit = number % unit;
+        vector_add(v, digit);
+
+        number = number - digit;
+        number = number / unit;
+    }
+
+    char string[vector_count(digits)];
+
+    for (int i = (vector_count(digits) - 1); i >= 0; i++) {
+        // TODO
+    }
+
+    return &string;
 }
 
 void println(char *string)
